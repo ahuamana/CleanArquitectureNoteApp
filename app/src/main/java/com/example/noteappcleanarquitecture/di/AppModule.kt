@@ -7,6 +7,7 @@ import com.example.noteappcleanarquitecture.feature_note.data.repository.NoteRep
 import com.example.noteappcleanarquitecture.feature_note.domain.repository.NoteRepository
 import com.example.noteappcleanarquitecture.feature_note.domain.use_case.AddNoteUseCase
 import com.example.noteappcleanarquitecture.feature_note.domain.use_case.DeleteNoteUseCase
+import com.example.noteappcleanarquitecture.feature_note.domain.use_case.GetNote
 import com.example.noteappcleanarquitecture.feature_note.domain.use_case.GetNotesUseCase
 import com.example.noteappcleanarquitecture.feature_note.domain.use_case.NoteUseCases
 import dagger.Module
@@ -36,6 +37,7 @@ object AppModule {
     fun provideUseCases(repository: NoteRepository) = NoteUseCases(
         getNotes = GetNotesUseCase(repository),
         deleteNote = DeleteNoteUseCase(repository),
-        addNote = AddNoteUseCase(repository)
+        addNote = AddNoteUseCase(repository),
+        getNote = GetNote(repository)
     )
 }
