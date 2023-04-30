@@ -82,15 +82,15 @@ fun NotesScreen(
             }
 
             Spacer(modifier = Modifier.height(16.dp))
-            LazyColumn(modifier = Modifier.fillMaxSize()){
+            LazyColumn(modifier = Modifier
+                .fillMaxSize()){
                 items(state.notes) { note ->
                     NoteItem(note = note, modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
                             navController.navigate(Screen.AddEditNoteScreen.route +
                                     "?noteId=${note.id}&noteColor=${note.color}")
-                        }
-                        .padding(vertical = 0.dp),
+                        },
                     onDeleteClick = {
                         viewModel.onEvent(NotesEvent.DeleteNote(note))
                         scope.launch { 

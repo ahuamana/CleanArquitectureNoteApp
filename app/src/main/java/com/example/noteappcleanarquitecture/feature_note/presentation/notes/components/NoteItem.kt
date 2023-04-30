@@ -63,24 +63,27 @@ fun NoteItem(
 
         Column(modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
-            .padding(end = 32.dp)
+            .padding(16.dp, 12.dp, 0.dp, 12.dp)
         ) {
-            Text(text = note.title,
-                style = MaterialTheme.typography.h6,
-                color = MaterialTheme.colors.onSurface,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-            Spacer(modifier = Modifier.height(8.dp))
 
-            Text(text = note.content,
-                style = MaterialTheme.typography.body1,
-                color = MaterialTheme.colors.onSurface,
-                maxLines = 10,
-                overflow = TextOverflow.Ellipsis
-            )
+            Column(modifier = Modifier
+                .fillMaxWidth()
+                .padding(end = 16.dp)) {
+                Text(text = note.title,
+                    style = MaterialTheme.typography.h6,
+                    color = MaterialTheme.colors.onSurface,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+                Spacer(modifier = Modifier.height(8.dp))
 
+                Text(text = note.content,
+                    style = MaterialTheme.typography.body1,
+                    color = MaterialTheme.colors.onSurface,
+                    maxLines = 10,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
             IconButton(onClick = onDeleteClick,
             modifier = Modifier.align(Alignment.End)) {
                 Icon(
